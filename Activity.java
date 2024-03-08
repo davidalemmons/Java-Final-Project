@@ -1,54 +1,77 @@
-public class Activity {
-    private int activityID;
-    private String name;
-    private double duration;
-    private String intensity;
-    private int caloriesBurned;
-    private String date;
+import java.time.LocalDate;
 
-    public Activity(String name, double duration, String intensity, String date) {
+public class Activity {
+    private int id;
+    private String name;
+    private int duration;
+    private int intensity;
+    private int caloriesBurned;
+    private LocalDate date;
+    private int userId;
+
+    // Corrected Constructor
+    public Activity(String name, int duration, int intensity, int caloriesBurned, LocalDate date) {
         this.name = name;
         this.duration = duration;
         this.intensity = intensity;
+        this.caloriesBurned = caloriesBurned;
         this.date = date;
-        this.caloriesBurned = calculateCaloriesBurned();
     }
 
-    private int calculateCaloriesBurned() {
-        return (int) (duration * getIntensityFactor(intensity));
+    // Getters and setters
+    public int getId() {
+        return id;
     }
 
-    private double getIntensityFactor(String intensity) {
-        switch (intensity.toLowerCase()) {
-            case "high":
-                return 12;
-            case "medium":
-                return 8;
-            case "low":
-                return 5;
-            default:
-                return 7;
-        }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getDuration() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDuration() {
         return duration;
     }
 
-    public String getIntensity() {
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int getIntensity() {
         return intensity;
+    }
+
+    public void setIntensity(int intensity) {
+        this.intensity = intensity;
     }
 
     public int getCaloriesBurned() {
         return caloriesBurned;
     }
 
-    public String getDate() {
+    public void setCaloriesBurned(int caloriesBurned) {
+        this.caloriesBurned = caloriesBurned;
+    }
+
+    public LocalDate getDate() {
         return date;
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 }

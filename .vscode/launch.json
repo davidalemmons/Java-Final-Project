@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LoginApp",
+            "request": "launch",
+            "mainClass": "LoginApp",
+            "projectName": "Java Final Project_85ae8895"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

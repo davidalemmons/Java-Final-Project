@@ -1,68 +1,97 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
 
 public class FoodItem {
-    private int foodID;
+    private int id;
     private String name;
-    private double calories;
-    private double carbs;
-    private double fats;
-    private double proteins;
-    private double servingSize;
-    private String consumptionDate;
+    private int calories;
+    private int carbs;
+    private int fats;
+    private int protiens;
+    private int servingSize;
+    private LocalDate date;
+    private int userId;
 
-    public double getCalories() {
-        return calories;
-    }
-
-    public FoodItem(int foodID, String name, double calories, double carbs, double fats, double proteins,
-            double servingSize, String consumptionDate) {
-        this.foodID = foodID;
+    // Constructor
+    public FoodItem(String name, int calories, int carbs, int fats, int protiens, int servingSize, LocalDate date) {
         this.name = name;
-        this.calories = Math.max(calories, 0);
-        this.carbs = Math.max(carbs, 0);
-        this.fats = Math.max(fats, 0);
-        this.proteins = Math.max(proteins, 0);
+        this.calories = calories;
+        this.carbs = carbs;
+        this.fats = fats;
+        this.protiens = protiens;
         this.servingSize = servingSize;
-        this.consumptionDate = consumptionDate;
+        this.date = date;
     }
 
-    public String getNutritionalInfo() {
-        return "Name: " + name + ", Calories: " + calories + " kcal, Carbs: " + carbs + "g, Fats: " + fats +
-                "g, Proteins: " + proteins + "g, Serving Size: " + servingSize + "g, Date: " + consumptionDate;
+    // Getters and setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public static List<FoodItem> createFoodItemListWithUserInput() {
-        List<FoodItem> foodItemList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter food items (press Enter without entering any data to stop):");
-        while (true) {
-            System.out.print("Enter food name: ");
-            String name = scanner.nextLine();
-            if (name.isEmpty()) {
-                break;
-            }
-            System.out.print("Enter calories: ");
-            double calories = scanner.nextDouble();
-            System.out.print("Enter carbs: ");
-            double carbs = scanner.nextDouble();
-            System.out.print("Enter fats: ");
-            double fats = scanner.nextDouble();
-            System.out.print("Enter proteins: ");
-            double proteins = scanner.nextDouble();
-            System.out.print("Enter serving size: ");
-            double servingSize = scanner.nextDouble();
-            System.out.print("Enter consumption date (YYYY-MM-DD): ");
-            String consumptionDate = scanner.next();
-            scanner.nextLine();
-            int foodID = foodItemList.size() + 1;
-            foodItemList.add(new FoodItem(foodID, name, calories, carbs, fats, proteins, servingSize, consumptionDate));
-        }
-        return foodItemList;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(int carbs) {
+        this.carbs = carbs;
+    }
+
+    public int getFats() {
+        return fats;
+    }
+
+    public void setFats(int fats) {
+        this.fats = fats;
+    }
+
+    public int getProtiens() {
+        return protiens;
+    }
+
+    public void setProtiens(int protiens) {
+        this.protiens = protiens;
+    }
+
+    public int getServingSize() {
+        return servingSize;
+    }
+
+    public void setServingSize(int servingSize) {
+        this.servingSize = servingSize;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
